@@ -1,149 +1,42 @@
-<svg id="gh-dark-mode-only" width="360" height="210" xmlns="http://www.w3.org/2000/svg">
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="glow"><stop offset="0" stop-color="#4FC3F7" stop-opacity=".35"/><stop offset="1" stop-color="#4FC3F7" stop-opacity="0"/></radialGradient>
+  <clipPath id="c"><rect x="0.5" y="0.5" width="399" height="199" rx="16"/></clipPath>
+</defs>
 <style>
-svg {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  font-size: 14px;
-  line-height: 21px;
-}
+svg { font-family: 'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+.bg { fill: #0A0E17; stroke: rgba(255,255,255,.09); stroke-width: 1px; }
+.wrap { color: #E6EDF7; height: 100%; box-sizing: border-box; }
+.head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.title { font-size: 15px; font-weight: 700; letter-spacing: -.2px; }
+.title b { color: #4FC3F7; }
+.pill { font-size: 10px; font-weight: 600; letter-spacing: 1.2px; color: #8FA0BE; padding: 3px 9px; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; background: rgba(255,255,255,.04); }
+.in { opacity: 0; animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-#background {
-  width: calc(100% - 10px);
-  height: calc(100% - 10px);
-  fill: white;
-  stroke: rgb(225, 228, 232);
-  stroke-width: 1px;
-  rx: 6px;
-  ry: 6px;
-}
-
-#gh-dark-mode-only:target #background {
-  fill: #0d1117;
-  stroke-width: 0.5px;
-}
-
-foreignObject {
-  width: calc(100% - 10px - 32px);
-  height: calc(100% - 10px - 24px);
-}
-
-h2 {
-  margin-top: 0;
-  margin-bottom: 0.75em;
-  line-height: 24px;
-  font-size: 16px;
-  font-weight: 600;
-  color: rgb(36, 41, 46);
-  fill: rgb(36, 41, 46);
-}
-
-#gh-dark-mode-only:target h2 {
-  color: #c9d1d9;
-  fill: #c9d1d9;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-li {
-  display: inline-flex;
-  font-size: 12px;
-  margin-right: 2ch;
-  align-items: center;
-  flex-wrap: nowrap;
-  transform: translateX(-500%);
-  animation: slideIn 2s ease-in-out forwards;
-}
-
-@keyframes slideIn {
-  to {
-    transform: translateX(0);
-  }
-}
-
-div.ellipsis {
-  height: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.octicon {
-  fill: rgb(88, 96, 105);
-  margin-right: 0.5ch;
-  vertical-align: top;
-}
-
-#gh-dark-mode-only:target .octicon {
-  color: #8b949e;
-  fill: #8b949e;
-}
-
-.progress {
-  display: flex;
-  height: 8px;
-  overflow: hidden;
-  background-color: rgb(225, 228, 232);
-  border-radius: 6px;
-  outline: 1px solid transparent;
-  margin-bottom: 1em;
-}
-
-#gh-dark-mode-only:target .progress {
-  background-color: rgba(110, 118, 129, 0.4);
-}
-
-.progress-item {
-  outline: 2px solid rgb(225, 228, 232);
-  border-collapse: collapse;
-}
-
-#gh-dark-mode-only:target .progress-item {
-  outline: 2px solid #393f47;
-}
-
-.lang {
-  font-weight: 600;
-  margin-right: 4px;
-  color: rgb(36, 41, 46);
-}
-
-#gh-dark-mode-only:target .lang {
-  color: #c9d1d9;
-}
-
-.percent {
-  color: rgb(88, 96, 105)
-}
-
-#gh-dark-mode-only:target .percent {
-  color: #8b949e;
-}
+.progress { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: rgba(255,255,255,.08); margin-bottom: 14px; gap: 2px; }
+.progress-item { height: 100%; transform-origin: left; animation: grow 1s cubic-bezier(.2,.7,.2,1) forwards; transform: scaleX(0); }
+@keyframes grow { to { transform: scaleX(1); } }
+ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; row-gap: 6px; }
+li { display: flex; align-items: center; font-size: 12px; opacity: 0; animation: rise .6s cubic-bezier(.2,.7,.2,1) forwards; white-space: nowrap; }
+li:nth-child(n+9) { display: none; }
+.octicon { margin-right: 6px; flex: none; }
+.lang { font-weight: 600; color: #E6EDF7; margin-right: auto; overflow: hidden; text-overflow: ellipsis; }
+.percent { color: #8FA0BE; font-variant-numeric: tabular-nums; margin-left: 8px; }
 </style>
-<g>
-<rect x="5" y="5" id="background" />
-<g>
-<foreignObject x="21" y="17" width="318" height="176">
-<div xmlns="http://www.w3.org/1999/xhtml" class="ellipsis">
-
-<h2>Languages Used (By File Size)</h2>
-
-<div>
-<span class="progress">
+<g clip-path="url(#c)">
+  <rect class="bg" x="0.5" y="0.5" width="399" height="199" rx="16"/>
+  <circle cx="20" cy="0" r="150" fill="url(#glow)"/>
+  <foreignObject x="18" y="16" width="364" height="170">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="wrap">
+      <div class="head in"><div class="title">Top <b>Languages</b></div><div class="pill">BY CODE SIZE</div></div>
+      <div class="progress">
 {{ progress }}
-</span>
-</div>
-
-<ul>
-
+      </div>
+      <ul>
 {{ lang_list }}
-
-</ul>
-
-</div>
-</foreignObject>
-</g>
+      </ul>
+    </div>
+  </foreignObject>
 </g>
 </svg>
